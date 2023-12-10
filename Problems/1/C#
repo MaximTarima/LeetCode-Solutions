@@ -1,0 +1,17 @@
+/*
+Date: 12/8/2023
+Runtime: 130ms (Beats 89.27%)
+Memory: 44.1MB (Beats 79.84%)
+*/
+
+public class Solution {
+    public int[] TwoSum(int[] nums, int target) {
+        Dictionary<int, int> viewed = new Dictionary<int, int>();
+        for (int i = 0; i < nums.Length; i++) {
+            int pair = target - nums[i];
+            if (viewed.TryGetValue(pair, out int j))
+                return new int[]{i, j};
+            if (!viewed.ContainsKey(pair))
+        }
+    }
+}
