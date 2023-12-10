@@ -1,5 +1,24 @@
 /*
-Date: 
-Runtime: 
-Memory: 
+Date: 12/10/2023
+Runtime: 54 ms (95.1%)
+Memory: 39.6 MB (76.31%)
 */
+public class Solution {
+    public int LengthOfLongestSubstring(string s) {
+        HashSet<char> window = new HashSet<char>();
+        int start = 0, end = 0, max = 0;
+        while (end < s.Length) {
+            if (window.Contains(s[end])) {
+                window.Remove(s[start]);
+                start++;
+            }
+            else {
+                window.Add(s[end]);
+                int n = end - start + 1;
+                if (n > max) max = n;
+                end++;
+            }
+        }
+        return max;
+    }
+}
