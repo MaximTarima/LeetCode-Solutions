@@ -1,0 +1,25 @@
+/*
+Date: 12/10/2023
+Runtime: 86 ms (91.96%)
+Memory: 51.8 MB (96.41%)
+*/
+public class Solution {
+    public double FindMedianSortedArrays(int[] nums1, int[] nums2) {
+        int totalLength = nums1.Length + nums2.Length;
+        int middle = totalLength / 2 + 1;
+
+        int a = 0, b = 0;
+        int prev = 0, curr = 0;
+
+        for (int i = 0; i < middle; i++) {
+            prev = curr;
+
+            if (a < nums1.Length && (b >= nums2.Length || nums1[a] <= nums2[b]))
+                curr = nums1[a++];
+            else curr = nums2[b++];
+        }
+
+        if (totalLength % 2 == 1) return curr;
+        else return (prev + curr) / 2.0;
+    }
+}

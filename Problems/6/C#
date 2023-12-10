@@ -1,0 +1,32 @@
+/*
+Date: 12/10/2023
+Runtime: 69 ms (94.67%)
+Memory: 42.5 MB (96.6%)
+*/
+public class Solution {
+    public string Convert(string s, int rows) {
+        if (rows == 1) return s;
+
+        StringBuilder answer = new StringBuilder(s.Length);
+        int cycle = 2 * (rows - 1);
+
+        for (int i = 0; i < s.Length; i += cycle) answer.Append(s[i]);
+
+        for (int row = 1; row < rows - 1;) {
+            int i = row++;
+            int down = (rows - row) * 2;
+            int up = cycle - down;
+            bool goingUp = false;
+
+            while (i < s.Length) {
+                answer.Append(s[i]);
+                i += goingUp ? up : down;
+                goingUp = !goingUp;
+            }
+        }
+
+        for (int i = rows - 1; i < s.Length; i += cycle) answer.Append(s[i]);
+
+        return answer.ToString();
+    }
+}

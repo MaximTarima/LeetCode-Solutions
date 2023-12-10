@@ -1,7 +1,7 @@
 /*
 Date: 12/10/2023
 Runtime: 54 ms (95.1%)
-Memory: 39.6 MB (76.31%)
+Memory: 39.6 MB (76.37%)
 */
 public class Solution {
     public int LengthOfLongestSubstring(string s) {

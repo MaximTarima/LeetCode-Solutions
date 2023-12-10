@@ -1,0 +1,14 @@
+/*
+Date: 12/07/2023
+Runtime: 11 ms (99.48%)
+Memory: 26.8 MB (42.19%)
+*/
+public class Solution {
+  public int TotalMoney(int n) {
+    int weeks = n / 7;
+    int days = n % 7;
+    return (days + 28) * weeks
+      + days * (days + 1) / 2
+      + (weeks - 1) * weeks / 2 * 7;
+  }
+}
