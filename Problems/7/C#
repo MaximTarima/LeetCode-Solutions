@@ -1,0 +1,19 @@
+/*
+Date: 12/10/2023
+Runtime: 15 ms (97.79%)
+Memory: 26.8 MB (60.46%)
+*/
+public class Solution {
+    public int Reverse(int x) {
+        int max = int.MaxValue / 10;
+        int min = int.MinValue / 10;
+        int y = 0;
+        while (x != 0) {
+            int d = x % 10;
+            if (y > max || (y == max && d > 7) || y < min || (y == min && d < -8)) return 0;
+            y = 10 * y + d;
+            x /= 10;
+        }
+        return y;
+    }
+}
